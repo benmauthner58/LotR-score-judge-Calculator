@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Score Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .results div {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .red { color: red; }
+        .blue { color: blue; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Score Calculator</h1>
+        <h2>judge penalty</h2>
+        <h3>Lord of the Rings 2024</h3>
+        
+        <!-- Buttons for scoring options -->
+        <button class="button" onclick="addPoints('blueMinor')">Blue Minor (+10 points)</button>
+        <button class="button" onclick="addPoints('blueMajor')">Blue Major (+20 points)</button>
+        <button class="button" onclick="addPoints('redMinor')">Red Minor (+10 points)</button>
+        <button class="button" onclick="addPoints('redMajor')">Red Major (+20 points)</button>
+        
+        <!-- Results sections for RED and BLUE -->
+        <div class="results">
+            <div class="red" id="redScore">Total Red Score: 0</div>
+            <div class="blue" id="blueScore">Total Blue Score: 0</div>
+        </div>
+    </div>
+    
+    <script>
+        let redScore = 0;
+        let blueScore = 0;
+
+        function addPoints(option) {
+            switch(option) {
+                case 'blueMinor':
+                    blueScore += 10;
+                    break;
+                case 'blueMajor':
+                    blueScore += 20;
+                    break;
+                case 'redMinor':
+                    redScore += 10;
+                    break;
+                case 'redMajor':
+                    redScore += 20;
+                    break;
+                default:
+                    break;
+            }
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('redScore').textContent = 'Total Red Score: ' + redScore;
+            document.getElementById('blueScore').textContent = 'Total Blue Score: ' + blueScore;
+        }
+    </script>
+</body>
+</html>
